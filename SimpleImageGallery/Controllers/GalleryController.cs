@@ -14,14 +14,14 @@ namespace SimpleImageGallery.Controllers
     {
         private readonly IImage _imageService;
 
-        protected GalleryController(IImage imageService)
+        public GalleryController(IImage imageService)
         {
             _imageService = imageService;
         }
 
         public IActionResult Index()
         {
-            var imageList = new ImageService.GetAll();
+            var imageList = _imageService.GetAll();
 
             var model = new GalleryIndexModel()
             {
